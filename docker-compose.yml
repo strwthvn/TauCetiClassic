@@ -1,0 +1,47 @@
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ss13}
+      MYSQL_USER: ${MYSQL_USER:-ss13}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./SQL/ss13.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  ss13:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${SS13_PORT:-1488}:${SS13_PORT:-1488}"
+    environment:
+      SS13_PORT: ${SS13_PORT:-1488}
+      SS13_SERVERNAME: ${SS13_SERVERNAME:-TauCeti Classic}
+      SS13_DB_ADDRESS: db
+      SS13_DB_PORT: 3306
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ss13}
+      MYSQL_USER: ${MYSQL_USER:-ss13}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./config:/ss13/config
+      - ss13-data:/ss13/data
+
+volumes:
+  db-data:
+  ss13-data:

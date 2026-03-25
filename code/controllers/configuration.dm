@@ -72,6 +72,9 @@ var/global/bridge_secret = null
 
 	var/bunker_ban_mode = 0
 	var/bunker_ban_mode_message = "Sorry, you can't play on this server, we do not accept new players."
+	var/ckey_whitelist_enabled = 0
+	var/ckey_whitelist_message = "This server is whitelisted. Contact the admin to get access."
+	var/list/ckey_whitelist = list()
 
 	var/cult_ghostwriter = 1               //Allows ghosts to write in blood in cult rounds...
 	var/cult_ghostwriter_req_cultists = 9  //...so long as this many cultists are active.
@@ -664,6 +667,17 @@ var/global/bridge_secret = null
 				if("bunker_ban_mode_message")
 					config.bunker_ban_mode_message = value
 
+
+				if ("ckey_whitelist_enabled")
+					config.ckey_whitelist_enabled = 1
+					var/list/lines = file2list("config/ckey_whitelist.txt")
+					for(var/line in lines)
+						line = trim(line)
+						if(length(line) && line[1] != "#")
+							config.ckey_whitelist += ckey(line)
+
+				if("ckey_whitelist_message")
+					config.ckey_whitelist_message = value
 				if("summon_testmap")
 					config.load_testmap = TRUE
 

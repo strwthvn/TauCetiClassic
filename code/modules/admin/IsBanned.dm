@@ -21,6 +21,9 @@
 	if (!real_bans_only && istype(C) && ckey == C.ckey && computer_id == C.computer_id && address == C.address)
 		return
 
+	// Ckey whitelist
+	if(!real_bans_only && config.ckey_whitelist_enabled && !(ckey in config.ckey_whitelist) && !(ckey in admin_datums))
+		return list(BANKEY_REASON="", "desc"="[config.ckey_whitelist_message]")
 	// Whitelist
 	if(!real_bans_only && config.bunker_ban_mode && is_blocked_by_regisration_panic_bunker_ban_mode(ckey))
 		return list(BANKEY_REASON="", "desc"="[config.bunker_ban_mode_message]")
