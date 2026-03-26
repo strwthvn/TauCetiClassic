@@ -54,20 +54,6 @@ type: project
 
 5. **Карта**: Stroechka (Гефест) — дефолтная в `config/maps.txt`, `data/next_map.json` задаётся внутри контейнера
 
-## Ключевые файлы кодовой базы
-
-- Погода: `code/datums/weather/weather.dm`, `weather_types.dm` (snow_storm для Stroechka)
-- Температура: `code/modules/mob/living/carbon/human/life.dm` → `handle_environment()`
-- Атмос (ZAS): `code/modules/atmospheric/ZAS/`
-- Нагрев: `code/modules/atmospheric/machinery/components/unary_devices/thermomachine.dm`
-- Ивенты: `code/modules/events/` + `code/controllers/subsystem/events.dm`
-- Враждебные мобы: `code/modules/mob/living/simple_animal/hostile/`
-- Работы: `code/game/jobs/` (на Stroechka: CE, Engineer x3, Atmos Tech x3, Tech Assistant x2, Cyborg)
-- Скиллы Stroechka: `code/modules/skills/skillset_stroechka.dm` (ULTRA ENGINEER — все навыки)
-- Конфиг парсинг: `code/controllers/configuration.dm`
-- Подключение: `code/modules/admin/IsBanned.dm`
-- Снежные тайлы: `code/game/turfs/turf_snow.dm`
-
 ## Гайд
 
 `ss13-guide.md` в корне репо — инструкция по запуску/остановке/обновлению.
