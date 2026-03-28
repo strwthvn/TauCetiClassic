@@ -4141,10 +4141,12 @@
 "kn" = (
 /obj/structure/table,
 /obj/item/weapon/razor{
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 6
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner{
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 7
 	},
 /turf/simulated/floor{
 	dir = 5;
@@ -4181,6 +4183,9 @@
 /area/shuttle/supply/station)
 "kV" = (
 /obj/structure/table/glass,
+/obj/item/weapon/storage/firstaid/regular{
+	pixel_y = 4
+	},
 /turf/simulated/floor{
 	dir = 1;
 	icon_state = "whiteblue"
@@ -4568,7 +4573,8 @@
 "nW" = (
 /obj/structure/table,
 /obj/item/weapon/reagent_containers/spray/cleaner{
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 8
 	},
 /turf/simulated/floor{
 	dir = 10;
@@ -5775,27 +5781,28 @@
 "wT" = (
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 7;
-	pixel_y = -3
+	pixel_y = 4
 	},
 /obj/item/weapon/reagent_containers/glass/bottle/antitoxin{
-	pixel_x = -4;
-	pixel_y = -3
+	pixel_x = -3;
+	pixel_y = 4
 	},
 /obj/item/weapon/reagent_containers/syringe/inaprovaline{
 	pixel_x = 3;
-	pixel_y = -2
+	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/glass/bottle/stoxin,
+/obj/item/weapon/reagent_containers/glass/bottle/stoxin{
+	pixel_y = 4
+	},
 /obj/item/weapon/reagent_containers/glass/bottle/toxin{
 	pixel_x = 4;
-	pixel_y = 2
+	pixel_y = 4
 	},
 /obj/item/weapon/reagent_containers/syringe/inaprovaline{
 	pixel_x = 5;
-	pixel_y = -2
+	pixel_y = 4
 	},
 /obj/structure/table/glass,
-/obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor{
 	dir = 1;
 	icon_state = "whiteblue"
@@ -6767,13 +6774,17 @@
 /area/station/engineering/equip)
 "Dv" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/item/weapon/reagent_containers/dropper/precision,
+/obj/item/weapon/reagent_containers/glass/beaker/large{
+	pixel_y = 3
+	},
+/obj/item/weapon/reagent_containers/dropper/precision{
+	pixel_y = 3
+	},
 /obj/item/weapon/reagent_containers/dropper{
-	pixel_y = -4
+	pixel_y = 3
 	},
 /obj/item/clothing/glasses/science{
-	pixel_y = 1
+	pixel_y = 6
 	},
 /turf/simulated/floor{
 	dir = 4;
@@ -9034,7 +9045,9 @@
 	icon_state = "0-8"
 	},
 /obj/structure/table,
-/obj/item/weapon/storage/visuals/surgery/full,
+/obj/item/weapon/storage/visuals/surgery/full{
+	pixel_y = 7
+	},
 /turf/simulated/floor{
 	dir = 4;
 	icon_state = "whiteblue"
@@ -9847,7 +9860,9 @@
 /area/station/engineering/chiefs_office)
 "Xq" = (
 /obj/structure/table/glass,
-/obj/machinery/reagentgrinder,
+/obj/machinery/reagentgrinder{
+	pixel_y = 4
+	},
 /obj/machinery/light/smart{
 	dir = 1
 	},
@@ -9871,10 +9886,15 @@
 /area/station/engineering/atmos)
 "Xw" = (
 /obj/item/stack/sheet/mineral/phoron{
-	layer = 2.9
+	layer = 2.9;
+	pixel_y = 3
 	},
-/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline{
+	pixel_y = 3
+	},
+/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline{
+	pixel_y = 3
+	},
 /obj/item/weapon/reagent_containers/glass/bottle/antitoxin{
 	pixel_x = 4;
 	pixel_y = 4
@@ -9885,11 +9905,11 @@
 	},
 /obj/item/weapon/storage/pill_bottle/inaprovaline{
 	pixel_x = 5;
-	pixel_y = -2
+	pixel_y = 3
 	},
 /obj/item/weapon/storage/pill_bottle/inaprovaline{
 	pixel_x = 5;
-	pixel_y = -2
+	pixel_y = 3
 	},
 /obj/structure/table/glass,
 /obj/effect/decal/turf_decal{
