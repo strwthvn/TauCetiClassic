@@ -21,8 +21,17 @@
 
 	// any better place for this?
 	// todo: add map config
-	if(envtype == ENV_TYPE_SNOW)
-		day_cycle = new /datum/level_lighting_cycle/snow(src)
+	var/day_cycle_type
+	switch(envtype)
+		if(ENV_TYPE_SNOW)
+			day_cycle_type = /datum/level_lighting_cycle/snow
+		if(ENV_TYPE_FOREST)
+			day_cycle_type = /datum/level_lighting_cycle/forest
+		if(ENV_TYPE_DESERT)
+			day_cycle_type = /datum/level_lighting_cycle/desert
+
+	if(day_cycle_type)
+		day_cycle = new day_cycle_type(src)
 		day_cycle.apply()
 	else
 		var/level_lighting_type

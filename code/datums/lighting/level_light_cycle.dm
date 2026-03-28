@@ -14,6 +14,14 @@
 	phase_colors = list("#363b4c", "#ebfffa", "#806963", "#13131f") // dawn, day, sunset, night
 	cycle_duration = 36000 // 60 MINUTES
 
+/datum/level_lighting_cycle/forest
+	phase_colors = list("#4a6741", "#8fbf6f", "#c47a4a", "#1a2a1a") // dawn, day, sunset, night
+	cycle_duration = 36000 // 60 MINUTES
+
+/datum/level_lighting_cycle/desert
+	phase_colors = list("#8a6a4a", "#f0d8a0", "#c45030", "#1a1a2f") // dawn, day, sunset, night
+	cycle_duration = 36000 // 60 MINUTES
+
 /datum/level_lighting_cycle/New(datum/space_level/SL)
 	managed_level = SL
 	start_offset = rand(0, cycle_duration - 1)
