@@ -8,6 +8,8 @@
 	// this effect is shared between all clients on z-level
 	var/obj/effect/level_color_holder/color_holder
 
+	var/datum/level_lighting_cycle/day_cycle
+
 /datum/space_level/New(new_z, new_name, list/new_traits = list())
 	z_value = new_z
 	name = new_name
@@ -19,19 +21,21 @@
 
 	// any better place for this?
 	// todo: add map config
-	var/level_lighting_type
-	if(ZTRAIT_CENTCOM in traits)
-		level_lighting_type = /datum/level_lighting_effect/centcomm
-	else if(envtype == ENV_TYPE_SNOW)
-		level_lighting_type = /datum/level_lighting_effect/snow_map_random
-	else if(envtype == ZTRAIT_JUNKYARD)
-		level_lighting_type = /datum/level_lighting_effect/junkyard
+	if(envtype == ENV_TYPE_SNOW)
+		day_cycle = new /datum/level_lighting_cycle/snow(src)
+		day_cycle.apply()
 	else
-		level_lighting_type = /datum/level_lighting_effect/starlight
-		if(HAS_ROUND_ASPECT(ROUND_ASPECT_HIGH_SPACE_RADIATION))
-			level_lighting_type = /datum/level_lighting_effect/rad_space
+		var/level_lighting_type
+		if(ZTRAIT_CENTCOM in traits)
+			level_lighting_type = /datum/level_lighting_effect/centcomm
+		else if(envtype == ZTRAIT_JUNKYARD)
+			level_lighting_type = /datum/level_lighting_effect/junkyard
+		else
+			level_lighting_type = /datum/level_lighting_effect/starlight
+			if(HAS_ROUND_ASPECT(ROUND_ASPECT_HIGH_SPACE_RADIATION))
+				level_lighting_type = /datum/level_lighting_effect/rad_space
 
-	set_level_light(new level_lighting_type)
+		set_level_light(new level_lighting_type)
 
 	SSenvironment.update(z_value, envtype)
 
@@ -41,6 +45,8 @@
 		return
 
 	if(istext(color))
+		if(day_cycle)
+			day_cycle.pause()
 		color_holder.color = color
 		return
 
@@ -48,6 +54,15 @@
 		return
 
 	var/datum/level_lighting_effect/effect = color
+
+	if(day_cycle)
+		if(effect.lock_after)
+			QDEL_NULL(day_cycle)
+		else
+			day_cycle.pause()
+			if(effect.reset_after)
+				var/effect_duration = effect.transition_delay * (length(effect.colors) + 1)
+				day_cycle.resume_timer_id = addtimer(CALLBACK(day_cycle, TYPE_PROC_REF(/datum/level_lighting_cycle, resume)), effect_duration, TIMER_STOPPABLE)
 
 	if(effect.lock_after)
 		color_holder.locked = TRUE

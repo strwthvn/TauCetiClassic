@@ -428,6 +428,7 @@
 #include "code\datums\keybinding\movement.dm"
 #include "code\datums\keybinding\robot.dm"
 #include "code\datums\lighting\level_light.dm"
+#include "code\datums\lighting\level_light_cycle.dm"
 #include "code\datums\lighting\light_modes.dm"
 #include "code\datums\lighting\smartlight_presets.dm"
 #include "code\datums\mood_events\_mood_event.dm"
