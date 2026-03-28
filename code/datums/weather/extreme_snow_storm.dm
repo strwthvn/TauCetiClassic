@@ -27,6 +27,19 @@
 	var/telegraph_timer_id
 	var/tick_counter = 0
 	var/list/exterior_walls
+	var/next_sound_tick = 5 // randomized interval for ambient sounds
+
+	var/static/list/outdoor_sounds = list(
+		'sound/effects/wind/wind_4_1.ogg',
+		'sound/effects/wind/wind_4_2.ogg',
+		'sound/effects/wind/wind_5_1.ogg'
+	)
+	var/static/list/indoor_sounds = list(
+		'sound/effects/wind/wind_2_1.ogg',
+		'sound/effects/wind/wind_2_2.ogg',
+		'sound/effects/wind/wind_3_1.ogg',
+		'sound/ambience/specific/hullcreak.ogg'
+	)
 
 /datum/weather/snow_storm/extreme/telegraph()
 	if(stage == 1)
@@ -146,8 +159,9 @@
 				var/turf/simulated/wall/wall = W
 				wall.take_damage(rand(20, 40))
 
-	// ambient sound every 5 ticks
-	if(tick_counter % 5 == 0)
+	// ambient sound at randomized intervals (3-7 ticks) to avoid repetitive feel
+	if(tick_counter >= next_sound_tick)
+		next_sound_tick = tick_counter + rand(3, 7)
 		for(var/V in player_list)
 			var/mob/M = V
 			if(!SSmapping.level_trait(M.z, target_ztrait))
@@ -156,9 +170,9 @@
 			if(!A)
 				continue
 			if(A.outdoors)
-				M.playsound_local(null, 'sound/effects/wind/wind_5_1.ogg', VOL_EFFECTS_MASTER, null, FALSE)
+				M.playsound_local(null, pick(outdoor_sounds), VOL_EFFECTS_MASTER, null, FALSE)
 			else
-				M.playsound_local(null, 'sound/effects/wind/wind_2_1.ogg', VOL_EFFECTS_MASTER, null, FALSE)
+				M.playsound_local(null, pick(indoor_sounds), VOL_EFFECTS_MASTER, null, FALSE)
 
 /datum/weather/snow_storm/extreme/proc/force_stop()
 	if(telegraph_timer_id)
