@@ -37,8 +37,7 @@
 	var/static/list/indoor_sounds = list(
 		'sound/effects/wind/wind_2_1.ogg',
 		'sound/effects/wind/wind_2_2.ogg',
-		'sound/effects/wind/wind_3_1.ogg',
-		'sound/ambience/specific/hullcreak.ogg'
+		'sound/effects/wind/wind_3_1.ogg'
 	)
 
 /datum/weather/snow_storm/extreme/telegraph()
@@ -170,9 +169,9 @@
 			if(!A)
 				continue
 			if(A.outdoors)
-				M.playsound_local(null, pick(outdoor_sounds), VOL_EFFECTS_MASTER, null, FALSE)
+				M.playsound_local(null, pick(outdoor_sounds), VOL_EFFECTS_MASTER, null, FALSE, channel = CHANNEL_AMBIENT)
 			else
-				M.playsound_local(null, pick(indoor_sounds), VOL_EFFECTS_MASTER, null, FALSE)
+				M.playsound_local(null, pick(indoor_sounds), VOL_EFFECTS_MASTER, null, FALSE, channel = CHANNEL_AMBIENT)
 
 /datum/weather/snow_storm/extreme/proc/force_stop()
 	if(telegraph_timer_id)
