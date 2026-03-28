@@ -9078,8 +9078,7 @@
 /area/station/engineering/equip)
 "So" = (
 /obj/machinery/door/airlock/medical/glass{
-	dir = 4;
-	req_access = list(5)
+	dir = 4
 	},
 /obj/machinery/door/firedoor{
 	dir = 4
