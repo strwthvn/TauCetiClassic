@@ -546,13 +546,6 @@
 	icon_state = "vaultfull"
 	},
 /area/station/hallway/primary/central)
-"bf" = (
-/obj/machinery/chem_dispenser/soda{
-	anchored = 0;
-	pixel_y = 4
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "bg" = (
 /obj/machinery/vending/junkfood,
 /turf/simulated/floor{
@@ -3275,16 +3268,17 @@
 	},
 /area/station/rnd/lab)
 "fL" = (
-/obj/structure/device/piano/royal{
-	anchored = 0
+/obj/structure/window/fulltile/reinforced{
+	grilled = 1;
+	icon_state = "gr_window_reinforced"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/station/medical/hallway)
 "fM" = (
-/obj/machinery/bookbinder{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/snow,
 /area/space)
 "fN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3328,19 +3322,6 @@
 	},
 /turf/simulated/floor,
 /area/station/hallway/secondary/arrival)
-"fQ" = (
-/obj/machinery/chem_dispenser/beer{
-	anchored = 0;
-	pixel_y = 4
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"fR" = (
-/obj/machinery/libraryscanner{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "fS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3774,12 +3755,6 @@
 	icon_state = "dark"
 	},
 /area/station/engineering/engine)
-"in" = (
-/obj/machinery/washing_machine{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "io" = (
 /obj/machinery/light/smart,
 /obj/machinery/firealarm{
@@ -4081,6 +4056,10 @@
 	},
 /turf/simulated/floor,
 /area/station/hallway/secondary/exit)
+"ka" = (
+/obj/machinery/light/smart,
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "kc" = (
 /obj/structure/table,
 /obj/machinery/cell_charger{
@@ -4169,13 +4148,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/station/cargo/storage)
-"kw" = (
-/obj/machinery/message_server{
-	anchored = 0
-	},
-/obj/item/weapon/paper/monitorkey,
-/turf/simulated/floor/plating,
-/area/space)
 "kx" = (
 /turf/simulated/shuttle/floor/cargo{
 	icon_state = "3"
@@ -4204,6 +4176,7 @@
 	grilled = 1;
 	icon_state = "gr_window_reinforced"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/station/medical/chemistry)
 "ld" = (
@@ -4586,6 +4559,12 @@
 	icon_state = "blackcorner"
 	},
 /area/station/hallway/primary/central)
+"oc" = (
+/obj/machinery/light/smart{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "oi" = (
 /turf/simulated/floor{
 	icon_state = "black"
@@ -5263,7 +5242,7 @@
 /area/station/maintenance/auxsolarport)
 "tI" = (
 /obj/structure/stool/bed/roller,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/snow,
 /area/space)
 "tJ" = (
 /obj/item/weapon/storage/firstaid/fire{
@@ -5983,6 +5962,9 @@
 	icon_state = "dark"
 	},
 /area/station/rnd/lab)
+"ze" = (
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "zm" = (
 /turf/simulated/floor{
 	dir = 9;
@@ -6016,12 +5998,6 @@
 	icon_state = "2,5"
 	},
 /area/shuttle/supply/station)
-"zw" = (
-/obj/machinery/media/jukebox/bar{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "zE" = (
 /obj/machinery/atmospherics/components/trinary/mixer/m_mixer{
 	dir = 1;
@@ -6956,6 +6932,9 @@
 "Ed" = (
 /turf/simulated/wall/r_wall,
 /area/station/hallway/secondary/arrival)
+"Ei" = (
+/turf/simulated/wall/r_wall,
+/area/space)
 "Ej" = (
 /obj/machinery/door/airlock/glass{
 	name = "Central Access"
@@ -7267,6 +7246,10 @@
 	},
 /turf/environment/space,
 /area/shuttle/supply/station)
+"FJ" = (
+/obj/machinery/computer/mine_elevator,
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "FL" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -7932,12 +7915,6 @@
 	},
 /turf/simulated/floor,
 /area/station/engineering/atmos)
-"IF" = (
-/obj/machinery/photocopier{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "IG" = (
 /obj/machinery/alarm{
 	pixel_y = 22
@@ -8278,12 +8255,6 @@
 	icon_state = "whiteblue"
 	},
 /area/station/medical/hallway)
-"LI" = (
-/obj/machinery/computer/libraryconsole/bookmanagement/old{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "LW" = (
 /obj/structure/cable/yellow{
 	d2 = 2;
@@ -8823,12 +8794,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/station/engineering/engine)
-"Qi" = (
-/obj/machinery/blackbox_recorder{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "Qo" = (
 /obj/structure/stool/bed/bench,
 /turf/simulated/floor,
@@ -9433,12 +9398,6 @@
 	icon_state = "dark"
 	},
 /area/station/cargo/storage)
-"Uy" = (
-/obj/machinery/computer/libraryconsole/old{
-	anchored = 0
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "UC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/effect/decal/turf_decal{
@@ -10034,6 +9993,12 @@
 	icon_state = "cautioncorner"
 	},
 /area/station/engineering/atmos)
+"Yg" = (
+/obj/machinery/door/airlock/external{
+	dock_tag = "mining_elevator"
+	},
+/turf/environment/space,
+/area/space)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -40041,15 +40006,15 @@ uw
 mZ
 DT
 uF
-wQ
-wQ
+fM
+fM
 MC
 MC
 MC
 MC
-wQ
-wQ
-wQ
+fM
+fM
+fM
 MC
 MC
 MC
@@ -40298,15 +40263,15 @@ Oy
 IV
 qk
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
 MC
 MC
 MC
@@ -40555,18 +40520,18 @@ Oy
 iF
 qk
 wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
 MC
 MC
 MC
@@ -40813,18 +40778,18 @@ GI
 Fn
 Mx
 MC
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
+fM
 MC
 SW
 VK
@@ -41060,28 +41025,28 @@ MC
 MC
 rC
 rC
-ZJ
-ZJ
+fL
+fL
 Fn
-ZJ
-ZJ
+fL
+fL
 Fn
 Fn
 BZ
-wQ
+fM
 tI
-wQ
+fM
 MC
 MC
 MC
 MC
-wQ
-wQ
-wQ
+fM
+fM
+fM
 MC
 MC
-wQ
-wQ
+fM
+fM
 MC
 SW
 VK
@@ -41326,7 +41291,7 @@ MC
 MC
 MC
 MC
-wQ
+fM
 MC
 MC
 MC
@@ -41584,15 +41549,15 @@ MC
 MC
 MC
 MC
-hz
-hz
-hz
-hz
-hz
-hz
-hz
-hz
-wF
+MC
+MC
+MC
+MC
+MC
+MC
+MC
+MC
+MC
 MC
 MC
 MC
@@ -41841,15 +41806,15 @@ MC
 MC
 MC
 MC
-hz
-IF
-Qi
-bf
-kw
-fL
-fQ
-hz
-wF
+MC
+MC
+MC
+MC
+MC
+MC
+MC
+MC
+MC
 MC
 MC
 MC
@@ -42098,14 +42063,14 @@ MC
 MC
 MC
 MC
-Fc
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-Fc
+MC
+MC
+MC
+MC
+MC
+MC
+MC
+MC
 MC
 MC
 MC
@@ -42355,14 +42320,14 @@ MC
 MC
 MC
 MC
-Fc
-wQ
-wQ
-wQ
-wQ
-wQ
-wQ
-Fc
+MC
+MC
+MC
+MC
+MC
+MC
+MC
+MC
 MC
 MC
 MC
@@ -42603,6 +42568,14 @@ MC
 MC
 MC
 MC
+Ei
+Ei
+Ei
+Ei
+Ei
+Ei
+Ei
+wF
 MC
 MC
 MC
@@ -42612,14 +42585,6 @@ MC
 MC
 MC
 MC
-hz
-LI
-Uy
-in
-zw
-fM
-fR
-hz
 MC
 MC
 MC
@@ -42860,6 +42825,13 @@ MC
 MC
 MC
 MC
+Ei
+oc
+ze
+ze
+ze
+ka
+Ei
 MC
 MC
 MC
@@ -42869,14 +42841,7 @@ MC
 MC
 MC
 MC
-hz
-hz
-hz
-hz
-hz
-hz
-hz
-hz
+MC
 MC
 MC
 MC
@@ -43117,13 +43082,13 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Ei
+ze
+ze
+ze
+ze
+ze
+Ei
 MC
 MC
 MC
@@ -43374,13 +43339,13 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Ei
+FJ
+ze
+ze
+ze
+ze
+Yg
 MC
 MC
 MC
@@ -43631,13 +43596,13 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Ei
+ze
+ze
+ze
+ze
+ze
+Ei
 MC
 MC
 MC
@@ -43888,13 +43853,13 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Ei
+oc
+ze
+ze
+ze
+ka
+Ei
 MC
 MC
 MC
@@ -44138,7 +44103,6 @@ MC
 MC
 MC
 MC
-bX
 MC
 MC
 MC
@@ -44146,13 +44110,14 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Ei
+Ei
+Ei
+Ei
+Ei
+Ei
+Ei
+wF
 MC
 MC
 MC
@@ -45706,15 +45671,15 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+wF
 MC
 MC
 MC
@@ -45963,15 +45928,15 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+hz
+wQ
+wQ
+wQ
+wQ
+wQ
+wQ
+hz
+wF
 MC
 MC
 MC
@@ -46220,14 +46185,14 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Fc
+wQ
+wQ
+wQ
+wQ
+wQ
+wQ
+Fc
 MC
 MC
 MC
@@ -46477,14 +46442,14 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+Fc
+wQ
+wQ
+wQ
+wQ
+wQ
+wQ
+Fc
 MC
 MC
 MC
@@ -46734,14 +46699,14 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+hz
+wQ
+wQ
+wQ
+wQ
+wQ
+wQ
+hz
 MC
 MC
 MC
@@ -46991,14 +46956,14 @@ MC
 MC
 MC
 MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
-MC
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
 MC
 MC
 MC
@@ -50815,7 +50780,7 @@ MC
 MC
 MC
 MC
-MC
+bX
 MC
 MC
 MC

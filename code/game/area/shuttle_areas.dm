@@ -215,6 +215,20 @@
 	icon_state = "shuttle"
 	looped_ambience = 'sound/ambience/loop_space.ogg'
 
+//Mining Elevator
+/area/elevator/mining
+	name = "Шахтёрский лифт"
+	requires_power = FALSE
+	sound_environment = SOUND_AREA_SMALL_METALLIC
+
+/area/elevator/mining/surface
+	name = "Шахтёрский лифт - Поверхность"
+	icon_state = "shuttle2"
+
+/area/elevator/mining/underground
+	name = "Шахтёрский лифт - Шахта"
+	icon_state = "shuttle"
+
 //Centcom Transport Shuttle
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
