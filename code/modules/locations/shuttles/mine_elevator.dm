@@ -110,11 +110,22 @@
 	// Build turf mapping between origin and destination
 	var/list/turf_map = build_turf_map(origin, destination)
 
+	// Debug
+	var/src_count = 0
+	for(var/turf/T in origin)
+		src_count++
+	var/dst_count = 0
+	for(var/turf/T in destination)
+		dst_count++
+	message_admins("ELEVATOR DEBUG: origin=[origin.type] turfs=[src_count], dest=[destination.type] turfs=[dst_count], map_size=[turf_map.len]")
+
 	// Move all movables from origin to destination
 	for(var/turf/T in origin)
 		var/turf/target = turf_map[T]
 		if(!target)
+			message_admins("ELEVATOR DEBUG: no target for turf [T.x],[T.y],[T.z]")
 			continue
+		message_admins("ELEVATOR DEBUG: moving from [T.x],[T.y],[T.z] to [target.x],[target.y],[target.z]")
 		for(var/atom/movable/AM in T)
 			if(AM.anchored && !istype(AM, /obj/machinery/computer/mine_elevator))
 				continue
