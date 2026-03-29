@@ -1,6 +1,11 @@
 /turf/simulated/shuttle/floor/mining
 	icon = 'icons/locations/shuttles/shuttle_mining.dmi'
 
+/turf/simulated/shuttle/floor/mining/elevator
+	name = "floor"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "floor"
+
 /turf/simulated/shuttle/floor/shuttle_new
 	icon = 'icons/locations/shuttles/shuttle.dmi'
 

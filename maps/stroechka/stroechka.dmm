@@ -3427,6 +3427,10 @@
 /obj/structure/sign/warning/fire,
 /turf/simulated/wall/r_wall,
 /area/station/engineering/engine)
+"gk" = (
+/obj/structure/stool/bed/chair/schair/wagon/blue,
+/turf/simulated/shuttle/floor/mining/elevator,
+/area/elevator/mining/surface)
 "go" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 1
@@ -3699,6 +3703,11 @@
 	icon_state = "white"
 	},
 /area/station/medical/chemistry)
+"hY" = (
+/obj/machinery/light/smart,
+/obj/structure/ore_box,
+/turf/simulated/shuttle/floor/mining/elevator,
+/area/elevator/mining/surface)
 "ic" = (
 /turf/simulated/shuttle/floor/cargo{
 	icon_state = "3,3"
@@ -3755,10 +3764,6 @@
 	icon_state = "dark"
 	},
 /area/station/engineering/engine)
-"in" = (
-/obj/structure/stool/bed/chair/schair/wagon/blue,
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "io" = (
 /obj/machinery/light/smart,
 /obj/machinery/firealarm{
@@ -3991,6 +3996,9 @@
 	icon_state = "dark"
 	},
 /area/station/rnd/lab)
+"jn" = (
+/turf/simulated/wall/r_wall,
+/area/asteroid/mine/explored)
 "ju" = (
 /obj/machinery/light/smart{
 	dir = 4
@@ -4236,13 +4244,6 @@
 	},
 /turf/environment/space,
 /area/shuttle/supply/station)
-"ls" = (
-/obj/machinery/light/smart{
-	dir = 1
-	},
-/obj/structure/closet/emcloset,
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "lw" = (
 /obj/effect/landmark/start/new_player,
 /turf/simulated/floor,
@@ -4758,6 +4759,10 @@
 	icon_state = "darkyellow"
 	},
 /area/station/engineering/chiefs_office)
+"pY" = (
+/obj/machinery/computer/mine_elevator,
+/turf/simulated/shuttle/floor/mining/elevator,
+/area/elevator/mining/surface)
 "qd" = (
 /obj/machinery/light{
 	dir = 8
@@ -4937,10 +4942,6 @@
 	icon_state = "4,2"
 	},
 /area/shuttle/supply/station)
-"rr" = (
-/obj/machinery/computer/mine_elevator,
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "rA" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
@@ -5968,7 +5969,7 @@
 	},
 /area/station/rnd/lab)
 "ze" = (
-/turf/simulated/shuttle/floor/mining,
+/turf/simulated/shuttle/floor/mining/elevator,
 /area/elevator/mining/surface)
 "zm" = (
 /turf/simulated/floor{
@@ -6462,10 +6463,6 @@
 	},
 /turf/environment/space,
 /area/shuttle/supply/station)
-"Ci" = (
-/obj/structure/sign/xeno_warning_mining,
-/turf/simulated/wall/r_wall,
-/area/space)
 "Ct" = (
 /obj/structure/window/fulltile/reinforced{
 	grilled = 1;
@@ -8251,11 +8248,6 @@
 	icon_state = "black"
 	},
 /area/station/hallway/secondary/arrival)
-"Lz" = (
-/obj/machinery/light/smart,
-/obj/structure/ore_box,
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "LG" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
@@ -8592,6 +8584,10 @@
 	},
 /turf/simulated/floor/engine/nitrogen,
 /area/station/engineering/atmos)
+"Oe" = (
+/obj/machinery/build_crane,
+/turf/environment/space,
+/area/asteroid/mine/explored)
 "Oy" = (
 /turf/simulated/floor{
 	icon_state = "white"
@@ -9235,6 +9231,13 @@
 	icon_state = "dark"
 	},
 /area/station/hallway/primary/central)
+"Ts" = (
+/obj/machinery/light/smart{
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/shuttle/floor/mining/elevator,
+/area/elevator/mining/surface)
 "TD" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 8
@@ -10008,7 +10011,7 @@
 	dock_tag = "mining_elevator"
 	},
 /turf/environment/space,
-/area/space)
+/area/asteroid/mine/explored)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -10018,6 +10021,10 @@
 	icon_state = "caution"
 	},
 /area/station/engineering/atmos)
+"Yj" = (
+/obj/structure/sign/xeno_warning_mining,
+/turf/simulated/wall/r_wall,
+/area/asteroid/mine/explored)
 "Yk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -10039,6 +10046,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/station/engineering/engine)
+"Ys" = (
+/turf/environment/space,
+/area/asteroid/mine/explored)
 "YA" = (
 /mob/living/simple_animal/cat/dusty,
 /turf/simulated/floor{
@@ -42584,8 +42594,8 @@ Ei
 Ei
 Ei
 Ei
-Ei
-wF
+jn
+Oe
 MC
 MC
 MC
@@ -42836,13 +42846,13 @@ MC
 MC
 MC
 Ei
-ls
-in
-in
-in
-Lz
-Ei
-MC
+Ts
+gk
+gk
+gk
+hY
+jn
+Ys
 MC
 MC
 MC
@@ -43098,8 +43108,8 @@ ze
 ze
 ze
 ze
-Ei
-MC
+jn
+Ys
 MC
 MC
 MC
@@ -43350,13 +43360,13 @@ MC
 MC
 MC
 Ei
-rr
+pY
 ze
 ze
 ze
 ze
 Yg
-MC
+Ys
 MC
 MC
 MC
@@ -43612,8 +43622,8 @@ ze
 ze
 ze
 ze
-Ci
-MC
+Yj
+Ys
 MC
 MC
 MC
@@ -43864,13 +43874,13 @@ MC
 MC
 MC
 Ei
-ls
-in
-in
-in
-Lz
-Ei
-MC
+Ts
+gk
+gk
+gk
+hY
+jn
+Ys
 MC
 MC
 MC
@@ -44126,8 +44136,8 @@ Ei
 Ei
 Ei
 Ei
-Ei
-wF
+jn
+Oe
 MC
 MC
 MC
