@@ -3755,6 +3755,10 @@
 	icon_state = "dark"
 	},
 /area/station/engineering/engine)
+"in" = (
+/obj/structure/stool/bed/chair/schair/wagon/blue,
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "io" = (
 /obj/machinery/light/smart,
 /obj/machinery/firealarm{
@@ -4056,10 +4060,6 @@
 	},
 /turf/simulated/floor,
 /area/station/hallway/secondary/exit)
-"ka" = (
-/obj/machinery/light/smart,
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "kc" = (
 /obj/structure/table,
 /obj/machinery/cell_charger{
@@ -4236,6 +4236,13 @@
 	},
 /turf/environment/space,
 /area/shuttle/supply/station)
+"ls" = (
+/obj/machinery/light/smart{
+	dir = 1
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "lw" = (
 /obj/effect/landmark/start/new_player,
 /turf/simulated/floor,
@@ -4559,12 +4566,6 @@
 	icon_state = "blackcorner"
 	},
 /area/station/hallway/primary/central)
-"oc" = (
-/obj/machinery/light/smart{
-	dir = 1
-	},
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "oi" = (
 /turf/simulated/floor{
 	icon_state = "black"
@@ -4936,6 +4937,10 @@
 	icon_state = "4,2"
 	},
 /area/shuttle/supply/station)
+"rr" = (
+/obj/machinery/computer/mine_elevator,
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "rA" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
@@ -6457,6 +6462,10 @@
 	},
 /turf/environment/space,
 /area/shuttle/supply/station)
+"Ci" = (
+/obj/structure/sign/xeno_warning_mining,
+/turf/simulated/wall/r_wall,
+/area/space)
 "Ct" = (
 /obj/structure/window/fulltile/reinforced{
 	grilled = 1;
@@ -7246,10 +7255,6 @@
 	},
 /turf/environment/space,
 /area/shuttle/supply/station)
-"FJ" = (
-/obj/machinery/computer/mine_elevator,
-/turf/simulated/shuttle/floor/mining,
-/area/elevator/mining/surface)
 "FL" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -8246,6 +8251,11 @@
 	icon_state = "black"
 	},
 /area/station/hallway/secondary/arrival)
+"Lz" = (
+/obj/machinery/light/smart,
+/obj/structure/ore_box,
+/turf/simulated/shuttle/floor/mining,
+/area/elevator/mining/surface)
 "LG" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
@@ -42826,11 +42836,11 @@ MC
 MC
 MC
 Ei
-oc
-ze
-ze
-ze
-ka
+ls
+in
+in
+in
+Lz
 Ei
 MC
 MC
@@ -43340,7 +43350,7 @@ MC
 MC
 MC
 Ei
-FJ
+rr
 ze
 ze
 ze
@@ -43602,7 +43612,7 @@ ze
 ze
 ze
 ze
-Ei
+Ci
 MC
 MC
 MC
@@ -43854,11 +43864,11 @@ MC
 MC
 MC
 Ei
-oc
-ze
-ze
-ze
-ka
+ls
+in
+in
+in
+Lz
 Ei
 MC
 MC
