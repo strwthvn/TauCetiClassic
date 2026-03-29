@@ -10010,7 +10010,8 @@
 /obj/machinery/door/airlock/external{
 	dock_tag = "mining_elevator"
 	},
-/turf/environment/space,
+/obj/structure/fans/tiny,
+/turf/simulated/shuttle/floor/mining/elevator,
 /area/asteroid/mine/explored)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{

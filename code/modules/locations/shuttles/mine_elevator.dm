@@ -21,6 +21,18 @@
 /obj/machinery/computer/mine_elevator/atom_init()
 	. = ..()
 	current_location = get_area(src)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/mine_elevator/atom_init_late()
+	// Initialize the side where the elevator is NOT
+	var/area/other_side
+	if(istype(current_location, ELEVATOR_SURFACE))
+		other_side = locate(ELEVATOR_UNDERGROUND)
+	else
+		other_side = locate(ELEVATOR_SURFACE)
+	if(other_side)
+		spawn_shaft(other_side)
+		elevator_close_doors(other_side)
 
 /obj/machinery/computer/mine_elevator/ui_interact(mob/user)
 	var/location_name
@@ -213,22 +225,45 @@
 			AL.open()
 
 /obj/machinery/computer/mine_elevator/proc/spawn_shaft(area/A)
+	var/replacement_type
+	if(istype(A, ELEVATOR_SURFACE))
+		replacement_type = /turf/simulated/floor/plating/elevator_shaft
+	else
+		replacement_type = /turf/simulated/floor/plating/airless/elevator_empty
 	for(var/turf/T in A)
-		new /obj/structure/elevator_shaft(T)
+		T.ChangeTurf(replacement_type)
 
 /obj/machinery/computer/mine_elevator/proc/clear_shaft(area/A)
 	for(var/turf/T in A)
-		for(var/obj/structure/elevator_shaft/S in T)
-			qdel(S)
+		T.ChangeTurf(/turf/simulated/shuttle/floor/mining/elevator)
 
-/obj/structure/elevator_shaft
+// Surface shaft turf - dense pit, blocks movement
+/turf/simulated/floor/plating/elevator_shaft
 	name = "шахта лифта"
 	desc = "Глубокая тёмная шахта. Лучше не падать."
 	icon = 'icons/obj/pit.dmi'
 	icon_state = "pit1"
-	blend_mode = BLEND_MULTIPLY
-	anchored = TRUE
 	density = TRUE
+	can_deconstruct = FALSE
+
+/turf/simulated/floor/plating/elevator_shaft/break_tile()
+	return
+
+/turf/simulated/floor/plating/elevator_shaft/burn_tile()
+	return
+
+// Underground empty turf - asteroid floor when elevator is away
+/turf/simulated/floor/plating/airless/elevator_empty
+	name = "каменистый пол"
+	icon = 'icons/turf/asteroid.dmi'
+	icon_state = "asteroid"
+	can_deconstruct = FALSE
+
+/turf/simulated/floor/plating/airless/elevator_empty/break_tile()
+	return
+
+/turf/simulated/floor/plating/airless/elevator_empty/burn_tile()
+	return
 
 #undef ELEVATOR_COOLDOWN
 #undef ELEVATOR_MOVE_TIME

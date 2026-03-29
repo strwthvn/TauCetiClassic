@@ -862,7 +862,8 @@
 /obj/machinery/door/airlock/external{
 	dock_tag = "mining_elevator"
 	},
-/turf/simulated/floor/plating/airless/asteroid,
+/obj/structure/fans/tiny,
+/turf/simulated/shuttle/floor/mining/elevator,
 /area/asteroid/mine/explored)
 "Zx" = (
 /obj/structure/alien/weeds,
