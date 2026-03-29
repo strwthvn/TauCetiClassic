@@ -119,17 +119,33 @@
 		dst_count++
 	message_admins("ELEVATOR DEBUG: origin=[origin.type] turfs=[src_count], dest=[destination.type] turfs=[dst_count], map_size=[turf_map.len]")
 
-	// Move all movables from origin to destination
+	// Collect all movables first, then move them
+	var/list/to_move = list()
 	for(var/turf/T in origin)
 		var/turf/target = turf_map[T]
 		if(!target)
-			message_admins("ELEVATOR DEBUG: no target for turf [T.x],[T.y],[T.z]")
 			continue
-		message_admins("ELEVATOR DEBUG: moving from [T.x],[T.y],[T.z] to [target.x],[target.y],[target.z]")
 		for(var/atom/movable/AM in T)
 			if(AM.anchored && !istype(AM, /obj/machinery/computer/mine_elevator))
 				continue
-			AM.forceMove(target)
+			to_move[AM] = target
+
+	// Move items first, then mobs
+	for(var/atom/movable/AM in to_move)
+		if(ismob(AM))
+			continue
+		var/turf/target = to_move[AM]
+		AM.forceMove(target)
+
+	// Move mobs last
+	for(var/atom/movable/AM in to_move)
+		if(!ismob(AM))
+			continue
+		var/turf/target = to_move[AM]
+		var/mob/M = AM
+		message_admins("ELEVATOR DEBUG: mob [M] at [M.x],[M.y],[M.z] buckled=[M.buckled] loc=[M.loc] moving to [target.x],[target.y],[target.z]")
+		var/result = M.forceMove(target)
+		message_admins("ELEVATOR DEBUG: forceMove result=[result] mob now at [M.x],[M.y],[M.z] loc=[M.loc]")
 
 	// Spawn shaft where elevator was, clear shaft where it arrived
 	spawn_shaft(origin)
