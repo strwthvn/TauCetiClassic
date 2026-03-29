@@ -107,11 +107,18 @@
 	// Transit time
 	sleep(ELEVATOR_MOVE_TIME)
 
-	// Clear destination
-	SSshuttle.clean_arriving_area(destination)
+	// Build turf mapping between origin and destination
+	var/list/turf_map = build_turf_map(origin, destination)
 
-	// Move everything
-	origin.move_contents_to(destination)
+	// Move all movables from origin to destination
+	for(var/turf/T in origin)
+		var/turf/target = turf_map[T]
+		if(!target)
+			continue
+		for(var/atom/movable/AM in T)
+			if(AM.anchored && !istype(AM, /obj/machinery/computer/mine_elevator))
+				continue
+			AM.forceMove(target)
 
 	// Spawn shaft where elevator was, clear shaft where it arrived
 	spawn_shaft(origin)
@@ -132,6 +139,41 @@
 		M.playsound_local(null, 'sound/machines/ping.ogg', VOL_EFFECTS_MASTER, null, FALSE)
 
 	moving = FALSE
+
+/obj/machinery/computer/mine_elevator/proc/build_turf_map(area/origin, area/destination)
+	var/list/result = list()
+
+	// Get sorted turfs for origin
+	var/list/turfs_src = list()
+	var/src_min_x = INFINITY
+	var/src_min_y = INFINITY
+	for(var/turf/T in origin)
+		turfs_src += T
+		if(T.x < src_min_x) src_min_x = T.x
+		if(T.y < src_min_y) src_min_y = T.y
+
+	// Get sorted turfs for destination, indexed by relative coords
+	var/list/turfs_dst = list()
+	var/dst_min_x = INFINITY
+	var/dst_min_y = INFINITY
+	for(var/turf/T in destination)
+		turfs_dst += T
+		if(T.x < dst_min_x) dst_min_x = T.x
+		if(T.y < dst_min_y) dst_min_y = T.y
+
+	// Index destination turfs by relative position
+	var/list/dst_by_pos = list()
+	for(var/turf/T in turfs_dst)
+		var/key = "[T.x - dst_min_x],[T.y - dst_min_y]"
+		dst_by_pos[key] = T
+
+	// Map source turfs to destination turfs
+	for(var/turf/T in turfs_src)
+		var/key = "[T.x - src_min_x],[T.y - src_min_y]"
+		if(dst_by_pos[key])
+			result[T] = dst_by_pos[key]
+
+	return result
 
 /obj/machinery/computer/mine_elevator/proc/elevator_find_doors(area/A)
 	var/list/doors = list()
