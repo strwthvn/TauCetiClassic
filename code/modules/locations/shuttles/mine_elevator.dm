@@ -105,7 +105,7 @@
 		if(!target)
 			continue
 		for(var/atom/movable/AM in T)
-			if(AM.anchored && !istype(AM, /obj/machinery/computer/mine_elevator))
+			if(istype(AM, /obj/effect))
 				continue
 			to_move[AM] = target
 
