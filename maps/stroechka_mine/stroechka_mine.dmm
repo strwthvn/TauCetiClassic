@@ -356,7 +356,7 @@
 	},
 /area/asteroid/mine/abandoned)
 "tD" = (
-/turf/environment/space,
+/turf/simulated/shuttle/floor/mining/elevator,
 /area/elevator/mining/underground)
 "uR" = (
 /obj/structure/alien/weeds,
