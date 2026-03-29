@@ -91,32 +91,14 @@
 	do_move(current_location, destination)
 
 /obj/machinery/computer/mine_elevator/proc/do_move(area/origin, area/destination)
+	// Build turf mapping FIRST
+	var/list/turf_map = build_turf_map(origin, destination)
+
 	// Close doors at current level
 	elevator_close_doors(origin)
 
-	// Announce
-	for(var/mob/M in origin)
-		to_chat(M, "<span class='notice'>Лифт отправляется...</span>")
-		M.playsound_local(null, 'sound/machines/synth_alert.ogg', VOL_EFFECTS_MASTER, null, FALSE)
-
-	sleep(10)
-
-	// Transit time
-	sleep(ELEVATOR_MOVE_TIME)
-
-	// Build turf mapping between origin and destination
-	var/list/turf_map = build_turf_map(origin, destination)
-
-	// Debug
-	var/src_count = 0
-	for(var/turf/T in origin)
-		src_count++
-	var/dst_count = 0
-	for(var/turf/T in destination)
-		dst_count++
-	message_admins("ELEVATOR DEBUG: origin=[origin.type] turfs=[src_count], dest=[destination.type] turfs=[dst_count], map_size=[turf_map.len]")
-
-	// Collect all movables first, then move them
+	// Snapshot all movables BEFORE any sleep
+	// This captures everyone in the elevator right now, regardless of what happens during transit
 	var/list/to_move = list()
 	for(var/turf/T in origin)
 		var/turf/target = turf_map[T]
@@ -127,40 +109,45 @@
 				continue
 			to_move[AM] = target
 
-	// Move items first, then mobs
+	// Announce
+	for(var/mob/M in to_move)
+		if(!ismob(M))
+			continue
+		to_chat(M, "<span class='notice'>Лифт отправляется...</span>")
+		M.playsound_local(null, 'sound/machines/synth_alert.ogg', VOL_EFFECTS_MASTER, null, FALSE)
+
+	sleep(10)
+
+	// Transit time
+	sleep(ELEVATOR_MOVE_TIME)
+
+	// Clear shaft at destination
+	clear_shaft(destination)
+
+	// Move everything using the pre-captured snapshot
 	for(var/atom/movable/AM in to_move)
-		if(ismob(AM))
+		if(QDELETED(AM))
 			continue
 		var/turf/target = to_move[AM]
 		AM.forceMove(target)
 
-	// Move mobs last
-	for(var/atom/movable/AM in to_move)
-		if(!ismob(AM))
-			continue
-		var/turf/target = to_move[AM]
-		var/mob/M = AM
-		message_admins("ELEVATOR DEBUG: mob [M] at [M.x],[M.y],[M.z] buckled=[M.buckled] loc=[M.loc] moving to [target.x],[target.y],[target.z]")
-		var/result = M.forceMove(target)
-		message_admins("ELEVATOR DEBUG: forceMove result=[result] mob now at [M.x],[M.y],[M.z] loc=[M.loc]")
-
-	// Spawn shaft where elevator was, clear shaft where it arrived
+	// Spawn shaft where elevator was
 	spawn_shaft(origin)
-	clear_shaft(destination)
 
 	// Update location
 	current_location = destination
-
-	// Arrival shake
-	SSshuttle.shake_mobs_in_area(destination, UP)
 
 	// Open doors at new level
 	elevator_open_doors(destination)
 
 	// Announce arrival
-	for(var/mob/M in destination)
-		to_chat(M, "<span class='notice'>Лифт прибыл.</span>")
-		M.playsound_local(null, 'sound/machines/ping.ogg', VOL_EFFECTS_MASTER, null, FALSE)
+	for(var/atom/movable/AM in to_move)
+		if(!ismob(AM))
+			continue
+		var/mob/M = AM
+		if(!QDELETED(M))
+			to_chat(M, "<span class='notice'>Лифт прибыл.</span>")
+			M.playsound_local(null, 'sound/machines/ping.ogg', VOL_EFFECTS_MASTER, null, FALSE)
 
 	moving = FALSE
 
