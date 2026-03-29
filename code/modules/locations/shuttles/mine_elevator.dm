@@ -101,9 +101,6 @@
 
 	sleep(10)
 
-	// Shake during departure
-	SSshuttle.shake_mobs_in_area(origin, DOWN)
-
 	// Transit time
 	sleep(ELEVATOR_MOVE_TIME)
 
